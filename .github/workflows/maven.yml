@@ -33,3 +33,9 @@ jobs:
         cache: maven
     - name: Test with Maven
       run: mvn test ${{ github.event.inputs.param }}
+
+    - name: upload test report
+      uses: actions/upload-artifact@v3
+      with:
+        name: cucumber-report
+        path: build/test-results/
