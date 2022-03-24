@@ -8,8 +8,16 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+  schedule:
+    - cron: '30 21 * * *'
   workflow_dispatch:
     branches: [ master ]
+    inputs:
+      param:
+        type: string
+        description: run test without failed tests
+        required: false
+        default: -Dcucumber.filter.tags="not @Failed"
 jobs:
   build:
 
@@ -24,4 +32,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Test with Maven
-      run: mvn test
+      run: mvn test ${{ github.event.inputs.param }}

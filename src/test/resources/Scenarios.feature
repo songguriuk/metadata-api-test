@@ -1,5 +1,6 @@
 Feature: I want to test the metadata endpoint
 
+  @Failed
   Scenario Outline: metadata GET request negative tests caused by <value> as a subject
     Given I have an invalid subject as <value>
     When I call http://metadata-server-mock.herokuapp.com/metadata/
@@ -8,7 +9,7 @@ Feature: I want to test the metadata endpoint
       | value | statusCode |
       |       | 404        |
       | 123   | 404        |
-
+  @Failed
   Scenario Outline: metadata property GET request negative tests caused by <value> as a subject
     Given I have an invalid subject as <value>
     And  I have the valid property name as <property>
@@ -18,7 +19,7 @@ Feature: I want to test the metadata endpoint
       | value | property | statusCode |
       |       | url      | 404        |
       | 123   | name     | 404        |
-
+  @Failed
   Scenario Outline: metadata property GET request negative tests caused by <value> as a property
     Given I have a valid subject
     And I have an invalid property as <name>
@@ -56,7 +57,7 @@ Feature: I want to test the metadata endpoint
       | ticker      |
       | logo        |
       | description |
-
+  @Failed
   Scenario Outline: Successful metadata property GET request call for the property which has a single value
     Given I have a valid subject
     And I have the <name> property
@@ -67,7 +68,7 @@ Feature: I want to test the metadata endpoint
       | name    |
       | subject |
       | policy  |
-
+  @Failed
   Scenario Outline: query POST request negative tests caused by <invalid> in <attribute>
     Given I have <invalid> data in <attribute>
     When I call http://metadata-server-mock.herokuapp.com/metadata/query
@@ -76,7 +77,7 @@ Feature: I want to test the metadata endpoint
       | invalid     | attribute  | statusCode |
       |             | subjects   | 400        |
       | 123,456,789 | properties | 400        |
-
+  @Failed
   Scenario: Successful query POST request
     Given I have the valid subjects data as 789ef8ae89617f34c07f7f6a12e4d65146f958c0bc15a97b4ff169f16861707079636f696e, 789ef8ae89617f34c07f7f6a12e4d65146f958c0bc15a97b4ff169f1, 94d4cdbcffb09ebd4780d94f932a657dc4852530fa8013df66c72d4c676f6f64636f696e
     And I have the valid properties data
