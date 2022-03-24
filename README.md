@@ -9,6 +9,8 @@
 2. From GH Action
 
 Please see actions tab. the manual workflow trigger is enabled there.
+
+Additionally, it runs tests without failed one, it's available to download cucumber test report as an artifact. ( https://github.com/songguriuk/metadata-api-test/actions/runs/2036839188)
 ## Bugs 
 By running this tests, all failed tests indicate bugs described below.
 
