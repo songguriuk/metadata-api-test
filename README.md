@@ -7,11 +7,12 @@
    4. Run `mvn test`
 
 2. From GH Action
-   1. 
+
+Please see actions tab. the manual workflow trigger is enabled there.
 ## Bugs 
 By running this tests, all failed tests indicate bugs described below.
 
-1. POST 
+1. POST (/metadata/query)
    1. No validation on the request's payload is existed. In the other word, invalid or empty values around "subjects" and "properties" are all accepted.
    2. Incorrect status code mappings
       1. When successful, it should be 201 (CREATED)
